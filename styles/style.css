@@ -97,12 +97,6 @@ footer > p {
     font-size: 1rem;
     font-weight: 500;
     letter-spacing: 0.1rem;
-    text-align: center;
-}
-
-footer {
-    padding-left: 500px;
-    display: inline-flexbox;
 }
   
 a,
