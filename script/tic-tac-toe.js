@@ -78,10 +78,12 @@ function handleResultValidation () {
 }
 
 function handleComputerMOve(){
-    chooseComputerMOve()
-    if(!verifyWin())
-        handlePlayerChange()
-}
+    setTimeout(() => {
+      chooseComputerMOve()
+      if(!verifyWin())
+          handlePlayerChange()
+    }, 1000)
+  }
 
 function chooseComputerMOve() {
     while (true) {
@@ -93,7 +95,11 @@ function chooseComputerMOve() {
 
     //spot will have the computer move
     gameState[spot] = currentPlayer
-    document.getElementById(spot).innerHTML = currentPlayer
+    document.querySelectorAll('.cell').forEach((cell) => {
+      if(cell.getAttribute("data-cell-index") === spot.toString()){
+        cell.innerHTML = currentPlayer
+      }
+    })
 }
 
 
