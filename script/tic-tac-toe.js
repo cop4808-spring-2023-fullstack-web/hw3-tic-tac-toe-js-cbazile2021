@@ -10,6 +10,18 @@ const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
 
 statusDisplay.innerHTML = currentPlayerTurn();
 
+const arr = [0,0]
+const bar = document.querySelector(".bar")
+const state = () =>
+{
+    bar.style.height = "75px"
+    bar.style.width = "25px"
+    bar.innerHTML = <p>${arr[0]}    ${arr[1]}</p>
+    bar.style.color = "black"
+    bar.style.padding = "10px"
+    bar.style.border = "solid red"
+}
+
 const winningConditions = [
     [0, 1, 2],
     [3, 4, 5],
@@ -51,6 +63,8 @@ function verifyWin() {
         statusDisplay.innerHTML = winningMessage();
         gameActive = false;
         statusDisplay.style.color = "rgb(251,100,204)";
+        arr[0] += 1
+        state()
         return roundWon;
     }
 
@@ -123,6 +137,7 @@ function handleRestartGame() {
     statusDisplay.innerHTML = currentPlayerTurn();
     document.querySelectorAll('.cell').forEach(cell => cell.innerHTML = "");
 }
+
 
 document.querySelectorAll('.cell').forEach(cell => cell.addEventListener('click', handleCellClick));
 document.querySelector('.restart').addEventListener('click', handleRestartGame);

@@ -2,6 +2,7 @@ html,
 body {
     margin: 0;
     padding: 0;
+    background-color: brown;
 }
 
 body {
@@ -106,4 +107,9 @@ a:visited {
   
 #heart {
     font-size: 1.6rem;
+}
+
+.bar {
+    border: 15px;
+    border-color: brown;
 }
