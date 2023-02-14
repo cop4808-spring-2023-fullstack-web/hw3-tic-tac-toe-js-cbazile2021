@@ -6,7 +6,7 @@ body {
 
 body {
     color: rgb(65, 65, 65);
-    background-color: rgb(201, 79, 79);
+    background-color: rgb(255, 255, 255);
     font-family: Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
@@ -110,9 +110,10 @@ a:visited {
 }
 
 .barStat{
-    border: 15px;
-    border-color: rgb(218, 25, 25);
-    border-radius: 5px;
     height: 75px;
     width: 75px;
+}
+
+.box {
+    border: 10px;
 }

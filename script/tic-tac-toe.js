@@ -14,7 +14,7 @@ const arr = [0,0,0]
 const barStat = document.querySelector(".barStat")
 const state = () =>
 {
-    barStat.innerHTML = `<p>Human:${arr[1]} Computer:${arr[0]} TIES:${arr[2]}</p>`
+    barStat.innerHTML = `<p>Human:${arr[1]} Robot:${arr[0]} TIES:${arr[2]}</p>`
 }
 
 const winningConditions = [
