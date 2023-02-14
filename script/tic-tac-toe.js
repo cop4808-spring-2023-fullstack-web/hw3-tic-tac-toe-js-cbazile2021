@@ -36,6 +36,7 @@ function handleCellPlayed(clickedCell, clickedCellIndex) {
 function handlePlayerChange() {
     currentPlayer = currentPlayer === "X" ? "O" : "X";
     statusDisplay.innerHTML = currentPlayerTurn();
+    console.log("Displaying current player");
 }
 
 function verifyWin() {
@@ -75,6 +76,7 @@ function verifyWin() {
         statusDisplay.style.color = "rgb(251,100,204)";
         arr[1] += 1
         state()
+        console.log("The human won");
         return roundWon;
     }
     else if (roundWon2) {
@@ -83,6 +85,7 @@ function verifyWin() {
         statusDisplay.style.color = "rgb(251,100,204)";
         arr[0] += 1
         state()
+        console.log("The robot won");
         return roundWon;
     }
 
@@ -126,6 +129,7 @@ function chooseComputerMOve() {
         if (gameState[spot] == '') //checking for empty spot
             break;
     }
+    console.log("The robot has found a spot");
 
     //spot will have the computer move
     gameState[spot] = currentPlayer
