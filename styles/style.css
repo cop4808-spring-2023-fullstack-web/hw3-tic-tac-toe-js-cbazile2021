@@ -23,8 +23,8 @@ body {
 
 .container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: 3rem 0 1rem 0;
+    grid-template-columns: 0fr 0fr 0fr;
+    margin: 2rem 0 1rem 0;
 }
 
 .cell {
@@ -112,8 +112,4 @@ a:visited {
 .barStat{
     height: 75px;
     width: 75px;
-}
-
-.box {
-    border: 10px;
 }
