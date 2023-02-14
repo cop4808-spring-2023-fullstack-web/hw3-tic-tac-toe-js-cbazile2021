@@ -67,6 +67,7 @@ function verifyWin() {
             roundWon2 = true;
             break
         }
+        
     }
 
 
