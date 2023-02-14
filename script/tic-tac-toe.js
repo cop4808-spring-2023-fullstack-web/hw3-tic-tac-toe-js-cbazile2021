@@ -10,16 +10,11 @@ const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
 
 statusDisplay.innerHTML = currentPlayerTurn();
 
-const arr = [0,0]
-const bar = document.querySelector(".bar")
+const arr = [0,0,0]
+const barStat = document.querySelector(".barStat")
 const state = () =>
 {
-    bar.style.height = "75px"
-    bar.style.width = "25px"
-    bar.innerHTML = <p>${arr[0]}    ${arr[1]}</p>
-    bar.style.color = "black"
-    bar.style.padding = "10px"
-    bar.style.border = "solid red"
+    barStat.innerHTML = `<p>Human:${arr[1]} Computer:${arr[0]} TIES:${arr[2]}</p>`
 }
 
 const winningConditions = [
@@ -44,7 +39,7 @@ function handlePlayerChange() {
 }
 
 function verifyWin() {
-    let roundWon = false;
+    let roundWon1 = false;
     for (let i = 0; i <= 7; i++) {
         const winCondition = winningConditions[i];
         let a = gameState[winCondition[0]];
@@ -53,13 +48,36 @@ function verifyWin() {
         if (a === '' || b === '' || c === '') {
             continue;
         }
-        if (a === b && b === c) {
-            roundWon = true;
+        if (a === b && b === c && a === "X" && b === "X" && c === "X") {
+            roundWon1 = true;
+            break
+        }
+    }
+    let roundWon2 = false;
+    for (let i = 0; i <= 7; i++) {
+        const winCondition = winningConditions[i];
+        let a = gameState[winCondition[0]];
+        let b = gameState[winCondition[1]];
+        let c = gameState[winCondition[2]];
+        if (a === '' || b === '' || c === '') {
+            continue;
+        }
+        if (a === b && b === c && a === "O" && b === "O" && c === "O") {
+            roundWon2 = true;
             break
         }
     }
 
-    if (roundWon) {
+
+    if (roundWon1) {
+        statusDisplay.innerHTML = winningMessage();
+        gameActive = false;
+        statusDisplay.style.color = "rgb(251,100,204)";
+        arr[1] += 1
+        state()
+        return roundWon;
+    }
+    else if (roundWon2) {
         statusDisplay.innerHTML = winningMessage();
         gameActive = false;
         statusDisplay.style.color = "rgb(251,100,204)";
@@ -75,6 +93,8 @@ function verifyWin() {
         statusDisplay.innerHTML = drawMessage();
         gameActive = false;
         statusDisplay.style.color = "rgb(251,100,204)";
+        arr[2] += 1
+        state()
         return roundDraw;
     }
     return false;
@@ -96,7 +116,7 @@ function handleComputerMOve(){
       chooseComputerMOve()
       if(!verifyWin())
           handlePlayerChange()
-    }, 1000)
+    }, 800)
   }
 
 function chooseComputerMOve() {
